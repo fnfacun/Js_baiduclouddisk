@@ -185,19 +185,19 @@
 
     // 文件夹视图切换
     folders.addEventListener('click', (e) => {
-        let item = null;
-        if (e.target.tagName == 'LI') {
-            item = e.target;
-        } else if (e.target.tagName == 'IMG') {
-            item = e.target.parentNode;
-        };
-        if (item) {
-            data.forEach(item => {
-                delete item.checked;
-            });
-            nowId = item.dataset.id;
-            render();
-        };
+            let item = null;
+            if (e.target.tagName == 'LI') {
+                item = e.target;
+            } else if (e.target.tagName == 'IMG') {
+                item = e.target.parentNode;
+            };
+            if (item) {
+                data.forEach(item => {
+                    delete item.checked;
+                });
+                nowId = item.dataset.id;
+                render();
+            };
     });
 
     // 双击重命名
@@ -465,18 +465,7 @@
         alertClos.onclick = function () {
             css(mask, 'display', 'none');
             confirm.classList.remove('confirm-show');
-        };     
-        if(confirm.classList.contains('confirm-show')){
-            css(confirm,'top','100');
-            mTween({
-                el: confirm,
-                attr: {
-                    top : 260
-                },
-                duration: 1000,
-                fx: "bounceOut"
-            });
-        }; 
+        };
     };
 
     function reName(folder) {
